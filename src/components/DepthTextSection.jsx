@@ -94,7 +94,7 @@ const SuperchargedSection = () => {
           >
             <Cpu className="text-blue-500 w-16 h-16 mb-2 animate-pulse" />
             <h3 className="text-blue-400 font-mono text-sm font-black uppercase tracking-[0.2em]">
-              Zenith A18
+              Xeron A18
             </h3>
             <div className="mt-2 flex gap-1">
               <span className="w-1 h-1 bg-blue-500 rounded-full animate-ping" />

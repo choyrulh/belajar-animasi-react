@@ -136,7 +136,7 @@ const ChipsetSection = () => {
 
               <div className="z-10 flex flex-col items-center">
                 <span className="text-yellow-400 font-bold text-3xl tracking-tighter">
-                  ZENITH
+                  XERON
                 </span>
                 <span className="text-white/50 text-xs font-mono mt-1">
                   X-SERIES CHIP

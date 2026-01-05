@@ -138,7 +138,7 @@ const ThemeContent = ({ theme, title, desc, price }) => {
               isDark ? "text-white/20" : "text-black/20"
             }`}
           >
-            ZENITH TITANIUM
+            Xeron TITANIUM
           </div>
 
           {/* Reflection/Gloss */}

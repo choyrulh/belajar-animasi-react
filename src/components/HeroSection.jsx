@@ -86,7 +86,7 @@ const HeroSection = () => {
           className="relative z-20 text-center px-4"
         >
           <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white">
-            ZENITH X1
+            Xeron Z1
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mt-4">
             The future of vision.

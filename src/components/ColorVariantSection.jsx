@@ -29,7 +29,7 @@ const ColorVariantSection = () => {
               {/* Phone Mockup */}
               <div className="w-[300px] h-[600px] border-[12px] border-black/20 rounded-[3rem] shadow-2xl bg-black/10 backdrop-blur-sm z-10 flex items-center justify-center">
                 <span className={`text-2xl font-bold ${color.accent}`}>
-                  Zenith X1
+                  Xeron Z1
                 </span>
               </div>
 

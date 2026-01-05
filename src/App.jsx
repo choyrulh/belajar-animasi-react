@@ -25,6 +25,9 @@ const AudioSection = lazy(() => import("./components/AudioSection"));
 const ConnectivitySection = lazy(() =>
   import("./components/ConnectivitySection")
 );
+const SequentialVideoSection = lazy(() =>
+  import("./components/SequentialVideoSection")
+);
 const BatterySection = lazy(() => import("./components/BatterySection"));
 const ThemeSwitchSection = lazy(() =>
   import("./components/ThemeSwitchSection")
@@ -36,6 +39,10 @@ const DepthTextSection = lazy(() => import("./components/DepthTextSection"));
 const WaterSection = lazy(() => import("./components/WaterSection"));
 const FinalCtaSection = lazy(() => import("./components/FinalCtaSection"));
 const FooterSection = lazy(() => import("./components/FooterSection"));
+const CinematicVideoSection = lazy(() =>
+  import("./components/CinematicVideoSection")
+);
+const GamingSection = lazy(() => import("./components/GamingSection"));
 
 // Loading Fallback
 const LoadingScreen = () => (
@@ -68,14 +75,17 @@ export default function App() {
             <MarqueeSection />
             <FeaturePinSection />
             <ChipsetSection />
+            <GamingSection />
             <ExplodedViewSection />
             <ColorVariantSection />
             <DetailMagnifySection />
             <ParallaxGridSection />
             <CameraSection />
+            <CinematicVideoSection />
             <SecuritySection />
             <AudioSection />
             <ConnectivitySection />
+            <SequentialVideoSection />
             <BatterySection />
           </div>
 

@@ -27,7 +27,7 @@ const FooterSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl opacity-[0.03] pointer-events-none">
         <img
           src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=1000"
-          alt="Zenith Background"
+          alt="Xeron Background"
           className="w-full h-auto object-contain"
         />
       </div>
@@ -89,7 +89,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-neutral-100 pt-12">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-black tracking-tighter mb-4">
-              ZENITH.
+              XERON.
             </h3>
             <p className="text-neutral-500 max-w-xs text-sm leading-relaxed">
               Designed by Visionaries. Engineered for Humans. Joining the circle
@@ -134,7 +134,7 @@ const FooterSection = () => {
         </div>
 
         <div className="mt-20 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-neutral-400 uppercase tracking-widest">
-          <p>© 2025 ZENITH LABS INC. ALL RIGHTS RESERVED.</p>
+          <p>© 2025 Xeron LABS INC. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-black transition-colors">
               Privacy Policy

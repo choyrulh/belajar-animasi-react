@@ -135,7 +135,7 @@ const DynamicIslandSection = () => {
                   <p className="text-zinc-500 text-[10px] uppercase font-bold tracking-widest">
                     Mobile
                   </p>
-                  <h4 className="text-white font-medium">Studio Zenith</h4>
+                  <h4 className="text-white font-medium">Studio Xeron</h4>
                 </div>
               </div>
               <div className="flex gap-2">

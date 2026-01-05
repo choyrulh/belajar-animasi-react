@@ -43,7 +43,7 @@ const FinalCtaSection = () => {
       >
         <img
           src={imgProduct}
-          alt="Zenith X1"
+          alt="Xeron Z1"
           className="w-full h-full object-cover grayscale brightness-50"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -76,13 +76,13 @@ const FinalCtaSection = () => {
         {/* Main Headline with Clip Reveal */}
         <div className="relative text-center mb-8">
           <h1 className="text-[12vw] font-black leading-none tracking-tighter text-neutral-800">
-            ZENITH X1
+            Xeron Z1
           </h1>
           <motion.h1
             style={{ clipPath: textReveal }}
             className="absolute inset-0 text-[12vw] font-black leading-none tracking-tighter text-white"
           >
-            ZENITH X1
+            Xeron Z1
           </motion.h1>
         </div>
 
@@ -103,7 +103,7 @@ const FinalCtaSection = () => {
             className="group relative inline-flex h-16 items-center justify-center overflow-hidden rounded-full bg-white px-10 text-lg font-bold text-black transition-all"
           >
             <ShoppingBag className="mr-3 w-5 h-5" />
-            <span>Pre-Order Zenith X1</span>
+            <span>Pre-Order Xeron Z1</span>
             <ArrowRight className="ml-3 w-5 h-5 transition-transform group-hover:translate-x-1" />
           </motion.button>
 
