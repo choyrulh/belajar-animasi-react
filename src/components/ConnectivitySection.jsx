@@ -1,117 +1,144 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Share2, Watch, Headphones, Laptop } from "lucide-react";
+
+// IMPORT GAMBAR
+// Pastikan path ini sesuai. 
+// Saya menggunakan 'watch-xeron.png' yang baru Anda upload.
+// Saya menggunakan 'xeron-silver.webp' dari upload sebelumnya sebagai pusat (Phone).
+import phoneImg from "/xeronZ1back.webp"; 
+import watchImg from "/watch-xeron.webp";
+
+// Placeholder untuk Laptop dan Buds (Ganti import ini dengan file asli Anda nanti)
+import laptopImg from "/laptop-xeron.webp";
+import budsImg from "/earbuds-xeron.webp";
+// SEMENTARA: Saya pakai URL dummy transparan agar tidak error, ganti dengan import di atas
+// const laptopImg = "https://cdn.pixabay.com/photo/2014/09/24/16/28/notebook-459635_1280.png"; // Contoh placeholder
+// const budsImg = "https://cdn.pixabay.com/photo/2019/11/03/19/33/earphones-4599694_1280.png"; // Contoh placeholder
 
 const ConnectivitySection = () => {
   const containerRef = useRef(null);
-
-  // Kita buat height 300vh agar ada cukup ruang scroll untuk urutan animasi
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Urutan Animasi (Sequencing) berdasarkan progress 0 sampai 1:
-  // 0.0 - 0.2: Watch muncul
-  // 0.2 - 0.4: Buds muncul
-  // 0.4 - 0.6: Laptop muncul
-  // 0.6 - 1.0: Garis SVG menghubungkan semuanya
+  // Animasi Skala & Opacity
+  // Ukuran Ponsel ditingkatkan dari 1 menjadi 1.25 pada puncaknya
+  const centerScale = useTransform(scrollYProgress, [0, 0.3], [0.8, 1.25]);
+  const centerOpacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
-  const watchOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
-  const watchScale = useTransform(scrollYProgress, [0, 0.2], [0.5, 1]);
+  // Produk Periferal (Watch, Laptop, Buds) - Muncul dengan skala lebih besar
+  const watchScale = useTransform(scrollYProgress, [0.1, 0.3], [0.5, 1.1]);
+  const budsScale = useTransform(scrollYProgress, [0.3, 0.5], [0.5, 1.1]);
+  const laptopScale = useTransform(scrollYProgress, [0.5, 0.7], [0.5, 1.1]);
 
-  const budsOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
-  const budsScale = useTransform(scrollYProgress, [0.2, 0.4], [0.5, 1]);
-
-  const laptopOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
-  const laptopScale = useTransform(scrollYProgress, [0.4, 0.6], [0.5, 1]);
-
-  const pathLength = useTransform(scrollYProgress, [0.6, 1], [0, 1]);
+  const pathLength = useTransform(scrollYProgress, [0.7, 1], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative h-[300vh] bg-black">
-      {/* PIN SECTION */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-        <div className="relative w-full max-w-4xl h-[600px]">
-          {/* CENTER: SMARTPHONE */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-64 bg-gradient-to-br from-gray-700 to-gray-900 rounded-[2.5rem] border-4 border-gray-600 z-30 flex items-center justify-center shadow-2xl">
-            <Share2 className="text-blue-400 w-10 h-10" />
-            <div className="absolute top-2 w-12 h-1 bg-black rounded-full" />{" "}
-            {/* Speaker detail */}
-          </div>
+    <section ref={containerRef} className="relative h-[300vh] bg-black">
+      <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+        
+        {/* Background Ambient Glow yang lebih besar */}
+        <motion.div 
+          style={{ opacity: useTransform(scrollYProgress, [0, 0.5], [0.2, 0.5]) }}
+          className="absolute w-[1000px] h-[1000px] bg-blue-900/20 blur-[150px] rounded-full"
+        />
 
-          {/* PERIPHERAL: WATCH (Top Left) */}
-          <motion.div
-            style={{ opacity: watchOpacity, scale: watchScale }}
-            className="absolute top-10 left-10 md:left-20 w-28 h-28 bg-gray-900/80 backdrop-blur-md rounded-full border border-blue-500/30 flex flex-col items-center justify-center text-gray-300 z-20"
+        <div className="relative w-full max-w-7xl h-full flex items-center justify-center">
+          
+          {/* 1. CENTER: PHONE (Ukuran diperbesar menjadi w-64 ke atas) */}
+          <motion.div 
+            style={{ scale: centerScale, opacity: centerOpacity }}
+            className="relative z-30 flex flex-col items-center"
           >
-            <Watch className="mb-1 text-blue-400" />
-            <span className="text-xs font-bold">WATCH</span>
+            <img
+              src={phoneImg}
+              alt="Xeron Phone"
+              className="w-56 md:w-80 h-auto drop-shadow-[0_0_50px_rgba(59,130,246,0.3)]"
+            />
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-6 px-6 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full text-sm text-white font-black tracking-[0.3em] uppercase"
+            >
+              The Core
+            </motion.div>
           </motion.div>
 
-          {/* PERIPHERAL: BUDS (Bottom Right) */}
+          {/* 2. WATCH (Kiri Atas - Diperbesar) */}
           <motion.div
-            style={{ opacity: budsOpacity, scale: budsScale }}
-            className="absolute bottom-10 right-10 md:right-20 w-28 h-28 bg-gray-900/80 backdrop-blur-md rounded-2xl border border-blue-500/30 flex flex-col items-center justify-center text-gray-300 z-20"
+            style={{ 
+              opacity: useTransform(scrollYProgress, [0.1, 0.3], [0, 1]),
+              scale: watchScale,
+              left: "10%",
+              top: "15%"
+            }}
+            className="absolute z-20 flex flex-col items-center"
           >
-            <Headphones className="mb-1 text-blue-400" />
-            <span className="text-xs font-bold">BUDS</span>
+            <img src={watchImg} alt="Watch" className="w-40 md:w-56 drop-shadow-2xl" />
+            <span className="mt-4 text-sm font-bold text-blue-400 tracking-widest uppercase">Xeron Watch</span>
           </motion.div>
 
-          {/* PERIPHERAL: LAPTOP (Top Right) */}
+          {/* 3. LAPTOP (Kanan Atas - Diperbesar) */}
           <motion.div
-            style={{ opacity: laptopOpacity, scale: laptopScale }}
-            className="absolute top-10 right-10 md:right-20 w-32 h-24 bg-gray-900/80 backdrop-blur-md rounded-lg border border-blue-500/30 flex flex-col items-center justify-center text-gray-300 z-20"
+            style={{ 
+              opacity: useTransform(scrollYProgress, [0.5, 0.7], [0, 1]),
+              scale: laptopScale,
+              right: "5%",
+              top: "10%"
+            }}
+            className="absolute z-20 flex flex-col items-center"
           >
-            <Laptop className="mb-1 text-blue-400" />
-            <span className="text-xs font-bold">LAPTOP</span>
+            <img src={laptopImg} alt="Laptop" className="w-64 md:w-[500px] drop-shadow-2xl" />
+            <span className="mt-4 text-sm font-bold text-blue-400 tracking-widest uppercase">Xeron Book</span>
           </motion.div>
 
-          {/* SVG CONNECTING LINES */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none z-10"
-            viewBox="0 0 800 600"
+          {/* 4. BUDS (Kanan Bawah - Diperbesar) */}
+          <motion.div
+            style={{ 
+              opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
+              scale: budsScale,
+              right: "15%",
+              bottom: "15%"
+            }}
+            className="absolute z-20 flex flex-col items-center"
           >
-            {/* Line to Watch */}
+            <img src={budsImg} alt="Buds" className="w-32 md:w-48 drop-shadow-2xl" />
+            <span className="mt-4 text-sm font-bold text-blue-400 tracking-widest uppercase">Xeron Buds</span>
+          </motion.div>
+
+          {/* SVG Garis Koneksi - Disesuaikan dengan ukuran baru */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1200 800">
             <motion.path
-              d="M 400 300 L 200 300 L 150 150"
-              fill="transparent"
-              stroke="#3b82f6"
-              strokeWidth="2"
+              d="M 600 400 L 250 250" // Ke Watch
+              fill="transparent" stroke="#3b82f6" strokeWidth="2" strokeDasharray="8 8"
               style={{ pathLength }}
             />
-            {/* Line to Buds */}
             <motion.path
-              d="M 400 300 L 600 300 L 650 450"
-              fill="transparent"
-              stroke="#3b82f6"
-              strokeWidth="2"
+              d="M 600 400 L 950 250" // Ke Laptop
+              fill="transparent" stroke="#3b82f6" strokeWidth="2" strokeDasharray="8 8"
               style={{ pathLength }}
             />
-            {/* Line to Laptop */}
             <motion.path
-              d="M 400 300 L 600 300 L 650 150"
-              fill="transparent"
-              stroke="#3b82f6"
-              strokeWidth="2"
+              d="M 600 400 L 900 650" // Ke Buds
+              fill="transparent" stroke="#3b82f6" strokeWidth="2" strokeDasharray="8 8"
               style={{ pathLength }}
             />
           </svg>
         </div>
 
+        {/* Heading bawah ditingkatkan ukurannya */}
         <motion.div
           style={{ opacity: pathLength }}
-          className="text-center mt-10"
+          className="absolute bottom-12 text-center"
         >
-          <h2 className="text-white text-4xl font-bold tracking-tighter">
-            UNIFIED ECOSYSTEM
+          <h2 className="text-white text-5xl md:text-7xl font-black tracking-tighter uppercase italic">
+            Seamless Power
           </h2>
-          <p className="text-blue-400 font-medium">
-            Everything works together.
-          </p>
+          <div className="h-1 w-24 bg-blue-500 mx-auto mt-4" />
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 
