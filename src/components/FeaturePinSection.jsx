@@ -20,7 +20,7 @@ const FeaturePinSection = () => {
   const img2Opacity = useTransform(
     smoothProgress,
     [0.3, 0.4, 0.6, 0.7],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
   const img3Opacity = useTransform(smoothProgress, [0.7, 0.8, 1], [0, 1, 1]);
 
@@ -54,8 +54,8 @@ const FeaturePinSection = () => {
         </div>
 
         {/* --- LAYER 2: CONTENT (FLOATING) --- */}
-        <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-8 flex flex-col justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
             <motion.div style={{ y: textY }} className="relative h-[500px]">
               {/* CONTENT SCENE 1 */}
               <SceneContent
@@ -135,31 +135,31 @@ const SceneContent = ({ opacity, tag, title, desc, specs }) => (
     style={{ opacity }}
     className="absolute inset-0 flex flex-col justify-center"
   >
-    <span className="text-blue-400 font-mono text-sm tracking-[0.4em] uppercase mb-4 block">
+    <span className="text-blue-400 font-mono text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-3 sm:mb-4 block">
       {tag}
     </span>
-    <h2 className="text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter leading-none">
+    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-white mb-4 sm:mb-6 tracking-tighter leading-none">
       {title}
     </h2>
-    <p className="text-xl text-gray-300 font-light max-w-lg mb-10 leading-relaxed">
+    <p className="text-base sm:text-lg md:text-xl text-gray-300 font-light max-w-lg mb-6 sm:mb-8 md:mb-10 leading-relaxed">
       {desc}
     </p>
 
     {/* Specs Grid with Glassmorphism */}
-    <div className="flex gap-8">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8">
       {specs.map((spec, i) => (
         <div
           key={i}
-          className="flex items-center gap-4 bg-white/5 border border-white/10 backdrop-blur-xl p-4 rounded-2xl"
+          className="flex items-center gap-3 sm:gap-4 bg-white/5 border border-white/10 backdrop-blur-xl p-3 sm:p-4 rounded-xl sm:rounded-2xl"
         >
           <div className="p-2 bg-blue-500/20 rounded-lg text-blue-400">
-            <spec.icon size={24} />
+            <spec.icon size={20} className="sm:w-6 sm:h-6" />
           </div>
           <div className="flex flex-col">
-            <span className="text-white font-bold leading-none mb-1">
+            <span className="text-white font-bold leading-none mb-1 text-sm sm:text-base">
               {spec.label}
             </span>
-            <span className="text-[10px] text-gray-400 uppercase tracking-wider">
+            <span className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-wider">
               {spec.sub}
             </span>
           </div>

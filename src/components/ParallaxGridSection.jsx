@@ -65,33 +65,33 @@ const ParallaxBentoSection = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-24">
+        <div className="text-center mb-12 sm:mb-16 md:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-mono text-cyan-400 mb-6"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-mono text-cyan-400 mb-4 sm:mb-6"
           >
             <Activity size={12} />
             <span>SYSTEM ARCHITECTURE</span>
           </motion.div>
 
-          <h2 className="text-5xl md:text-8xl font-black text-white tracking-tighter mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-8xl font-black text-white tracking-tighter mb-4 sm:mb-6 px-4">
             PERFORMANCE <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-neutral-500 to-white">
               UNLEASHED
             </span>
           </h2>
-          <p className="max-w-2xl mx-auto text-neutral-400 text-lg md:text-xl font-light">
+          <p className="max-w-2xl mx-auto text-neutral-400 text-sm sm:text-base md:text-lg lg:text-xl font-light px-4">
             Redefining the boundaries of mobile computing with aerospace-grade
             engineering.
           </p>
         </div>
 
         {/* BENTO GRID LAYOUT */}
-        <div className="grid grid-cols-1 md:grid-cols-12 grid-rows-auto gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 grid-rows-auto gap-4 sm:gap-6">
           {/* ITEM 1: MAIN GAMING (Large, Spans 8 cols) */}
           <BentoCard
-            className="md:col-span-8 md:h-[500px] group"
+            className="md:col-span-8 min-h-[400px] md:h-[500px] group"
             parallaxY={ySlow}
           >
             <div className="absolute inset-0">
@@ -102,26 +102,26 @@ const ParallaxBentoSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/50 to-transparent" />
             </div>
-            <div className="relative z-10 p-10 h-full flex flex-col justify-center max-w-md">
-              <Cpu className="text-red-500 mb-6 w-12 h-12" />
-              <h3 className="text-4xl font-bold text-white mb-4">
+            <div className="relative z-10 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-center max-w-md">
+              <Cpu className="text-red-500 mb-4 sm:mb-6 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" />
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">
                 Snapdragon 8 Gen 3
               </h3>
-              <p className="text-gray-300 text-lg mb-6">
+              <p className="text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6">
                 Ray Tracing enabled. Console-level gaming in the palm of your
                 hand with 30% faster GPU rendering.
               </p>
-              <div className="flex gap-4">
-                <div className="px-4 py-2 bg-white/10 rounded-lg backdrop-blur-sm">
-                  <span className="block text-2xl font-bold text-white">
+              <div className="flex gap-3 sm:gap-4">
+                <div className="px-3 py-2 sm:px-4 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <span className="block text-xl sm:text-2xl font-bold text-white">
                     240Hz
                   </span>
                   <span className="text-xs text-gray-400 font-mono">
                     SAMPLING
                   </span>
                 </div>
-                <div className="px-4 py-2 bg-white/10 rounded-lg backdrop-blur-sm">
-                  <span className="block text-2xl font-bold text-white">
+                <div className="px-3 py-2 sm:px-4 bg-white/10 rounded-lg backdrop-blur-sm">
+                  <span className="block text-xl sm:text-2xl font-bold text-white">
                     120FPS
                   </span>
                   <span className="text-xs text-gray-400 font-mono">
@@ -134,7 +134,7 @@ const ParallaxBentoSection = () => {
 
           {/* ITEM 2: COOLING SYSTEM (Tall, Spans 4 cols) */}
           <BentoCard
-            className="md:col-span-4 md:row-span-2 min-h-[400px]"
+            className="md:col-span-4 md:row-span-2 min-h-[350px] sm:min-h-[400px]"
             parallaxY={yFast}
           >
             <div className="absolute inset-0">
@@ -145,15 +145,15 @@ const ParallaxBentoSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/20 to-black" />
             </div>
-            <div className="relative z-10 p-8 h-full flex flex-col justify-between">
+            <div className="relative z-10 p-6 sm:p-8 h-full flex flex-col justify-between">
               <div className="flex justify-between items-start">
-                <ThermometerSnowflake className="text-cyan-400 w-10 h-10" />
+                <ThermometerSnowflake className="text-cyan-400 w-8 h-8 sm:w-10 sm:h-10" />
                 <span className="text-cyan-400 font-mono text-xs border border-cyan-500/30 px-2 py-1 rounded">
                   VC LIQUID
                 </span>
               </div>
               <div>
-                <h3 className="text-3xl font-bold text-white mb-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                   IceCore Cooling
                 </h3>
                 <p className="text-gray-400 text-sm">
@@ -166,7 +166,7 @@ const ParallaxBentoSection = () => {
 
           {/* ITEM 3: CAMERA (Spans 5 cols) */}
           <BentoCard
-            className="md:col-span-5 md:h-[400px]"
+            className="md:col-span-5 min-h-[350px] md:h-[400px]"
             parallaxY={yReverse}
           >
             <div className="absolute inset-0">
@@ -177,14 +177,14 @@ const ParallaxBentoSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
             </div>
-            <div className="relative z-10 p-8 h-full flex flex-col justify-end">
+            <div className="relative z-10 p-6 sm:p-8 h-full flex flex-col justify-end">
               <div className="flex items-center gap-3 mb-4">
                 <Aperture className="text-yellow-400" />
                 <span className="text-yellow-400 font-mono text-xs">
                   ISO CERTIFIED
                 </span>
               </div>
-              <h3 className="text-3xl font-bold text-white mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                 200MP Master Lens
               </h3>
               <p className="text-gray-300 text-sm max-w-xs">
@@ -196,13 +196,13 @@ const ParallaxBentoSection = () => {
 
           {/* ITEM 4: BATTERY (Spans 3 cols) */}
           <BentoCard
-            className="md:col-span-3 md:h-[400px] bg-neutral-900"
+            className="md:col-span-3 min-h-[300px] md:h-[400px] bg-neutral-900"
             parallaxY={ySlow}
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(34,197,94,0.2),transparent)]" />
             <div className="relative z-10 p-6 h-full flex flex-col items-center justify-center text-center">
-              <div className="w-20 h-20 rounded-full border-4 border-green-500/20 flex items-center justify-center mb-6 relative">
-                <BatteryCharging className="text-green-500 w-8 h-8" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-4 border-green-500/20 flex items-center justify-center mb-4 sm:mb-6 relative">
+                <BatteryCharging className="text-green-500 w-6 h-6 sm:w-8 sm:h-8" />
                 <svg className="absolute inset-0 w-full h-full rotate-[-90deg]">
                   <circle
                     cx="50%"
@@ -218,7 +218,9 @@ const ParallaxBentoSection = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-4xl font-black text-white mb-1">120W</h3>
+              <h3 className="text-3xl sm:text-4xl font-black text-white mb-1">
+                120W
+              </h3>
               <p className="text-green-400 font-mono text-xs tracking-widest uppercase mb-4">
                 HyperCharge
               </p>
@@ -227,7 +229,10 @@ const ParallaxBentoSection = () => {
           </BentoCard>
 
           {/* ITEM 5: CONNECTIVITY (Spans 4 cols - Filler) */}
-          <BentoCard className="md:col-span-4 md:h-[300px]" parallaxY={yFast}>
+          <BentoCard
+            className="md:col-span-4 min-h-[250px] md:h-[300px]"
+            parallaxY={yFast}
+          >
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-600/30 rounded-full blur-3xl" />
               <div className="grid grid-cols-6 gap-2 p-4 opacity-10">
@@ -236,9 +241,11 @@ const ParallaxBentoSection = () => {
                 ))}
               </div>
             </div>
-            <div className="relative z-10 p-8">
-              <Wifi className="text-blue-400 w-8 h-8 mb-4" />
-              <h3 className="text-2xl font-bold text-white">Wi-Fi 7 Ready</h3>
+            <div className="relative z-10 p-6 sm:p-8">
+              <Wifi className="text-blue-400 w-6 h-6 sm:w-8 sm:h-8 mb-4" />
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Wi-Fi 7 Ready
+              </h3>
               <p className="text-gray-400 mt-2 text-sm">
                 Lowest latency for competitive online gaming.
               </p>
@@ -246,26 +253,29 @@ const ParallaxBentoSection = () => {
           </BentoCard>
 
           {/* ITEM 6: DISPLAY (Spans 8 cols) */}
-          <BentoCard className="md:col-span-8 md:h-[300px]" parallaxY={ySlow}>
+          <BentoCard
+            className="md:col-span-8 min-h-[250px] md:h-[300px]"
+            parallaxY={ySlow}
+          >
             <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
               <div className="w-[120%] h-[120%] bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070')] bg-cover bg-center opacity-30 blur-sm" />
             </div>
-            <div className="relative z-10 p-8 flex flex-col md:flex-row items-center justify-between h-full">
+            <div className="relative z-10 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between h-full">
               <div className="text-left">
-                <Maximize className="text-purple-400 mb-4" />
-                <h3 className="text-3xl font-bold text-white">
+                <Maximize className="text-purple-400 mb-3 sm:mb-4" />
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
                   6.8" AMOLED 2X
                 </h3>
-                <p className="text-gray-400 mt-2 max-w-md">
+                <p className="text-gray-400 mt-2 max-w-md text-sm">
                   The brightest display on a smartphone. Reaching peak
                   brightness of 2600 nits.
                 </p>
               </div>
               <div className="mt-6 md:mt-0 text-right">
-                <span className="text-6xl font-black text-white/10 block">
+                <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white/10 block">
                   HDR
                 </span>
-                <span className="text-6xl font-black text-white/20 block -mt-10">
+                <span className="text-4xl sm:text-5xl md:text-6xl font-black text-white/20 block -mt-6 sm:-mt-8 md:-mt-10">
                   10+
                 </span>
               </div>

@@ -35,7 +35,7 @@ const MarqueeSection = () => {
   const translateY = useTransform(
     smoothProgress,
     [0, 1],
-    ["0%", `-${(100 * (features.length - 1)) / features.length}%`]
+    ["0%", `-${(100 * (features.length - 1)) / features.length}%`],
   );
 
   return (
@@ -88,9 +88,9 @@ const FeatureText = ({ text, index, progress, total }) => {
   return (
     <motion.div
       style={{ opacity, scale, filter: blur }}
-      className="h-[150px] flex items-center justify-center whitespace-nowrap px-10"
+      className="h-[150px] flex items-center justify-center whitespace-nowrap px-4 sm:px-6 md:px-10"
     >
-      <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold uppercase tracking-tighter text-white">
         {text}
       </h2>
     </motion.div>

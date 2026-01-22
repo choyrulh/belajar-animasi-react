@@ -75,7 +75,7 @@ export default function SequentialVideoSection() {
       </div>
 
       {/* Content Layer */}
-      <div className="relative z-20 container mx-auto px-6 text-center text-white">
+      <div className="relative z-20 container mx-auto px-4 sm:px-6 text-center text-white">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex} // Key penting agar animasi ulang saat index berubah
@@ -85,20 +85,22 @@ export default function SequentialVideoSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
               {currentContent.title}
             </h2>
-            <p className="text-xl md:text-2xl text-gray-200 font-light leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light leading-relaxed px-4">
               {currentContent.description}
             </p>
 
             {/* Indikator Progress Video (Opsional) */}
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-2 mt-6 sm:mt-8">
               {contentData.map((_, idx) => (
                 <div
                   key={idx}
                   className={`h-1 rounded-full transition-all duration-500 ${
-                    idx === currentIndex ? "w-12 bg-white" : "w-3 bg-gray-600"
+                    idx === currentIndex
+                      ? "w-8 sm:w-12 bg-white"
+                      : "w-2 sm:w-3 bg-gray-600"
                   }`}
                 />
               ))}

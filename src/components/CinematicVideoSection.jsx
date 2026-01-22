@@ -21,7 +21,7 @@ export default function CinematicVideoSection() {
   const borderRadius = useTransform(
     scrollYProgress,
     [0.1, 0.5],
-    ["40px", "0px"]
+    ["40px", "0px"],
   );
   // Teks bergerak parallax
   const yText = useTransform(scrollYProgress, [0.2, 0.6], [100, -100]);
@@ -54,12 +54,12 @@ export default function CinematicVideoSection() {
         {/* Overlay Text */}
         <motion.div
           style={{ y: yText, opacity: opacityText }}
-          className="absolute bottom-20 left-6 md:left-20 z-20 max-w-2xl"
+          className="absolute bottom-12 sm:bottom-16 md:bottom-20 left-4 sm:left-6 md:left-20 right-4 sm:right-6 z-20 max-w-2xl"
         >
-          <h2 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tighter drop-shadow-lg">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-white mb-3 sm:mb-4 tracking-tighter drop-shadow-lg">
             Nightography.
           </h2>
-          <p className="text-xl md:text-2xl text-gray-200 font-light drop-shadow-md">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light drop-shadow-md">
             Tangkap keajaiban malam dengan sensor AI terbaru. Cahaya minim,
             detail maksimal.
           </p>

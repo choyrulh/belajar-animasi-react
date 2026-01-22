@@ -6,7 +6,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 
-const PIXELS_PER_FRAME = 120; 
+const PIXELS_PER_FRAME = 120;
 const TOTAL_FRAMES = 17;
 
 const HeroSection = () => {
@@ -52,7 +52,7 @@ const HeroSection = () => {
     // Memastikan index berhenti di frame terakhir (16) dan tidak error
     const index = Math.min(
       TOTAL_FRAMES - 1,
-      Math.floor(progress * TOTAL_FRAMES)
+      Math.floor(progress * TOTAL_FRAMES),
     );
     setCurrentFrame(index);
   });
@@ -60,8 +60,8 @@ const HeroSection = () => {
   // Animasi Teks (Tetap menghilang agar konten section bawah tidak tertutup teks)
   const titleScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.8]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
-  
-  /** * PERUBAHAN DISINI: 
+
+  /** * PERUBAHAN DISINI:
    * Kita tidak lagi mengubah opacity container ke 0 di akhir scroll.
    * Frame terakhir akan tetap tampil (pinned) sampai section ini benar-benar terdorong ke atas.
    */
@@ -74,7 +74,6 @@ const HeroSection = () => {
     >
       {/* Sticky container menjaga gambar tetap di layar selama scrollHeight belum habis */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
-        
         {isLoaded ? (
           <div className="absolute inset-0 w-full h-full">
             <img
@@ -94,10 +93,10 @@ const HeroSection = () => {
           style={{ scale: titleScale, opacity: titleOpacity }}
           className="relative z-20 text-center px-4"
         >
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white">
             Xeron Z1
           </h1>
-          <p className="text-xl md:text-2xl text-gray-400 mt-4">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mt-3 sm:mt-4">
             The future of vision.
           </p>
         </motion.div>
